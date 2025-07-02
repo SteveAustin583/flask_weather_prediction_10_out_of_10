@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seattle Weather Prediction</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f4f4f9; }
+        .container { max-width: 600px; margin: auto; padding: 2em; background-color: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1, h2 { text-align: center; color: #333; }
+        form { display: grid; grid-gap: 15px; }
+        label { font-weight: bold; }
+        input, select { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .prediction { margin-top: 20px; padding: 15px; background-color: #e7f3fe; border-left: 6px solid #2196F3; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seattle Weather Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="precipitation">Precipitation (mm):</label>
+            <input type="number" step="any" id="precipitation" name="precipitation" required>
+
+            <label for="temp_max">Max Temperature (°C):</label>
+            <input type="number" step="any" id="temp_max" name="temp_max" required>
+
+            <label for="temp_min">Min Temperature (°C):</label>
+            <input type="number" step="any" id="temp_min" name="temp_min" required>
+
+            <label for="wind">Wind Speed (m/s):</label>
+            <input type="number" step="any" id="wind" name="wind" required>
+            
+            <label for="yesterdays_weather">Yesterday's Weather:</label>
+            <select id="yesterdays_weather" name="yesterdays_weather" required>
+                <option value="sun">Sun</option>
+                <option value="rain">Rain</option>
+                <option value="fog">Fog</option>
+                <option value="drizzle">Drizzle</option>
+                <option value="snow">Snow</option>
+            </select>
+
+            <button type="submit">Predict Weather</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Predicted Weather: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
