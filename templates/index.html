@@ -18,7 +18,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        h1, h2 {
+        h1, h2, h3 {
             text-align: center;
             color: #333;
         }
@@ -61,12 +61,18 @@
             border-radius: 4px;
             color: #c62828;
         }
+        .section-divider {
+            margin-top: 20px;
+            border-bottom: 2px solid #eee;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Seattle Weather Prediction</h1>
+
         <form action="/predict" method="post">
+            <h3>Today's Data</h3>
             <label for="precipitation">Precipitation (mm):</label>
             <input type="number" step="any" id="precipitation" name="precipitation" required>
 
@@ -79,7 +85,23 @@
             <label for="wind">Wind Speed (m/s):</label>
             <input type="number" step="any" id="wind" name="wind" required>
             
-            <label for="yesterdays_weather">Yesterday's Weather:</label>
+            <div class="section-divider"></div>
+
+            <!-- START: NEW SECTION -->
+            <h3>Yesterday's Data</h3>
+            <label for="yesterdays_precipitation">Yesterday's Precipitation (mm):</label>
+            <input type="number" step="any" id="yesterdays_precipitation" name="yesterdays_precipitation" required>
+
+            <label for="yesterdays_temp_max">Yesterday's Max Temperature (°C):</label>
+            <input type="number" step="any" id="yesterdays_temp_max" name="yesterdays_temp_max" required>
+
+            <label for="yesterdays_temp_min">Yesterday's Min Temperature (°C):</label>
+            <input type="number" step="any" id="yesterdays_temp_min" name="yesterdays_temp_min" required>
+
+            <label for="yesterdays_wind">Yesterday's Wind Speed (m/s):</label>
+            <input type="number" step="any" id="yesterdays_wind" name="yesterdays_wind" required>
+
+            <label for="yesterdays_weather">Yesterday's Weather Condition:</label>
             <select id="yesterdays_weather" name="yesterdays_weather" required>
                 <option value="sun">Sun</option>
                 <option value="rain">Rain</option>
@@ -87,6 +109,7 @@
                 <option value="drizzle">Drizzle</option>
                 <option value="snow">Snow</option>
             </select>
+            <!-- END: NEW SECTION -->
 
             <button type="submit">Predict Weather</button>
         </form>
