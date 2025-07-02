@@ -76,14 +76,25 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        # Get data from the form
-        user_input = {
-            'precipitation': float(request.form['precipitation']),
-            'temp_max': float(request.form['temp_max']),
-            'temp_min': float(request.form['temp_min']),
-            'wind': float(request.form['wind']),
-            'yesterdays_weather': request.form['yesterdays_weather']
-        }
+        error_message = None
+        try:
+            # Get data from the form and convert to float
+            user_input = {
+                'precipitation': float(request.form['precipitation']),
+                'temp_max': float(request.form['temp_max']),
+                'temp_min': float(request.form['temp_min']),
+                'wind': float(request.form['wind']),
+                'yesterdays_weather': request.form['yesterdays_weather']
+            }
+            # Check if the provided weather type is known to the encoder
+            if user_input['yesterdays_weather'] not in label_encoder.classes_:
+                error_message = f"Invalid input for Yesterday's Weather. Please use one of: {', '.join(label_encoder.classes_)}."
+        except (ValueError, KeyError):
+            # Handle cases: non-numeric input (ValueError) or missing form field (KeyError)
+            error_message = "Invalid input. Please enter numbers for the numeric fields."
+ 
+        if error_message:
+            return render_template('index.html', error=error_message)
 
         # Create the full feature set from user input
         features = create_features_from_input(user_input)
