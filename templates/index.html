@@ -87,7 +87,6 @@
             
             <div class="section-divider"></div>
 
-            <!-- START: NEW SECTION -->
             <h3>Yesterday's Data</h3>
             <label for="yesterdays_precipitation">Yesterday's Precipitation (mm):</label>
             <input type="number" step="any" id="yesterdays_precipitation" name="yesterdays_precipitation" required>
@@ -101,15 +100,16 @@
             <label for="yesterdays_wind">Yesterday's Wind Speed (m/s):</label>
             <input type="number" step="any" id="yesterdays_wind" name="yesterdays_wind" required>
 
+            <!-- START: FIXED SECTION -->
             <label for="yesterdays_weather">Yesterday's Weather Condition:</label>
             <select id="yesterdays_weather" name="yesterdays_weather" required>
-                <option value="sun">Sun</option>
-                <option value="rain">Rain</option>
-                <option value="fog">Fog</option>
-                <option value="drizzle">Drizzle</option>
-                <option value="snow">Snow</option>
+                {% for option in weather_options %}
+                    <option value="{{ option }}">{{ option.capitalize() }}</option>
+                {% else %}
+                    <option value="" disabled>-- Could not load options --</option>
+                {% endfor %}
             </select>
-            <!-- END: NEW SECTION -->
+            <!-- END: FIXED SECTION -->
 
             <button type="submit">Predict Weather</button>
         </form>
