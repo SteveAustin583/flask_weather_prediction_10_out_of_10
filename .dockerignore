@@ -1,0 +1,19 @@
+# Ignore Python's virtual environment
+venv/
+.venv/
+
+# Ignore Python's cache
+__pycache__/
+*.pyc
+
+# Ignore OS/IDE-specific files
+.DS_Store
+.vscode/
+.idea/
+
+# The notebook and data are for development, not for the production app
+notebook/
+
+# Git directory
+.git/
+.gitignore

@@ -1,6 +1,6 @@
 # Seattle Weather Classifier: An End-to-End Machine Learning Project
 
-![Python](https://img.shields.io/badge/Python-3.11-blue.svg) ![Flask](https://img.shields.io/badge/Flask-2.2.2-black.svg) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2.2-orange.svg) ![Pandas](https://img.shields.io/badge/Pandas-1.5.3-green.svg)
+![Python](https://img.shields.io/badge/Python-3.13.3-blue.svg) ![Flask](https://img.shields.io/badge/Flask-3.1.1-black.svg) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.7.0-orange.svg) ![Pandas](https://img.shields.io/badge/Pandas-2.3.0-green.svg)
 
 This project demonstrates a complete, end-to-end machine learning workflow for predicting daily weather conditions in Seattle. It begins with exploratory data analysis (EDA), proceeds to sophisticated feature engineering, rigorous model training, and culminates in a deployed Flask web application where users can get real-time predictions based on meteorological data.
 
