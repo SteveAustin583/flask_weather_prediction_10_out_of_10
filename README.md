@@ -8,9 +8,8 @@ The model is trained on the `seattle-weather.csv` dataset, treating the predicti
 
 ---
 
-### ➡️ Live Demo (Placeholder)
-**(If you deploy this, replace the link below with your live URL!)**
-`https://flask-ml-weather-prediction.onrender.com/`
+### ➡️ Live Demo
+https://flask-ml-weather-prediction.onrender.com/
 
 ### Application Screenshot
 ![Application Screenshot](app_screenshot.png)
