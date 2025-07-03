@@ -34,6 +34,10 @@ https://flask-ml-weather-prediction.onrender.com/
 *   **Visualization:** Matplotlib, Seaborn
 *   **Model Persistence:** Joblib
 
+## Deployment
+
+This application is containerized using Docker and deployed as a web service on Render. The deployment is configured for continuous integration and delivery (CI/CD), automatically rebuilding and deploying the application whenever new changes are pushed to the `main` branch on GitHub.
+
 ## Project Structure
 
 ```
